@@ -10,7 +10,7 @@
 	<ui:define name="corpo">
 		<h:form>
 
-			<h1>Pesquisar Cliente</h1>
+			<h1>Pesquesar usuário</h1>
 
 			<p:toolbar style="margin-top: 20px">
 				<p:toolbarGroup>
@@ -18,7 +18,7 @@
 					<p:commandButton value="Pesquisar" />
 				</p:toolbarGroup>
 				<p:toolbarGroup align="right">
-					<p:button value="Novo" outcome="/clientes/CadastroCliente" />
+					<p:button value="Novo" outcome="/usuarios/CadastroUsuario" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -26,29 +26,6 @@
 
 			<p:panelGrid columns="2" id="painel"
 				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
-
-				<p:outputLabel value="Tipo de documento" for="tipo" />
-
-				<p:selectOneRadio id="tipo" required="true"
-					value="#{clienteBean.tipoCliente}">
-
-					<f:selectItem itemLabel="CPF" itemValue="cpf" />
-					<f:selectItem itemLabel="CNPJ" itemValue="cnpj" />
-
-					<p:ajax execute="@this" update="@form" />
-
-				</p:selectOneRadio>
-
-
-					<p:outputLabel value="CPF" for="cpf" rendered="#{clienteBean.CPF}" />
-					<p:inputMask id="cpf" rendered="#{clienteBean.CPF}" size=""
-						mask="999.999.999-99" />
-	
-					<p:outputLabel value="CNPJ" for="cnpj"
-						rendered="#{clienteBean.CNPJ}" />
-					<p:inputMask id="cnpj" rendered="#{clienteBean.CNPJ}"
-						mask="99.999.999/9999-99" />
-
 
 				<p:outputLabel value="Nome" for="nome" />
 				<p:autoComplete id="nome" size="100" maxlength="250"/>
@@ -62,11 +39,8 @@
 				
 				</p:column>
 			
-				<p:column headerText="Tipo" style="text-align: left; width: 150px">
-				
-				</p:column>
 
-				<p:column headerText="CPF/CNPJ" style="text-align: left; width: 250px">
+				<p:column headerText="Email" style="text-align: left; width: 300px">
 				
 				</p:column>
 

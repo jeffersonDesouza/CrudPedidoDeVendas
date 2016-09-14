@@ -8,64 +8,100 @@
 	<ui:define name="titulo">Cadastro de Cliente</ui:define>
 
 	<ui:define name="corpo">
+		<h:form>
 
-		<h1>Novo Cliente</h1>
-		<p:toolbar>
-			<p:toolbarGroup>
-				<p:button value="Novo" outcome="/clientes/CadastroCliente" />
-				<p:commandButton value="Salvar" id="botaoSalvar" />
+			<h1>Novo Cliente</h1>
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/clientes/CadastroCliente" />
+					<p:commandButton value="Salvar" id="botaoSalvar" />
 
-			</p:toolbarGroup>
+				</p:toolbarGroup>
 
-			<p:toolbarGroup align="right">
-				<p:button value="Salvar" />
-			</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Salvar" />
+				</p:toolbarGroup>
 
-		</p:toolbar>
-
-
-		<div>
-			<h:form>
-				<p:panelGrid columns="2" id="painel"
-					style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
-
-					<p:outputLabel value="Nome" for="nome" />
-					<p:inputText id="nome" />
-
-					<p:outputLabel value="Tipo de documento" for="tipo" />
-
-					<p:selectOneRadio id="tipo" required="true"
-						value="#{clienteBean.tipoCliente}">
-
-						<f:selectItem itemLabel="CPF" itemValue="cpf" />
-						<f:selectItem itemLabel="CNPJ" itemValue="cnpj" />
-
-						<p:ajax execute="@this" update="@form" />
-
-					</p:selectOneRadio>
-
-
-					<p:outputLabel value="CPF" for="cpf" rendered="#{clienteBean.CPF}" />
-					<p:inputMask id="cpf" rendered="#{clienteBean.CPF}" size=""
-							mask="999.999.999-99" />
-							
-					<p:outputLabel value="CNPJ" for="cnpj" rendered="#{clienteBean.CNPJ}" />
-					<p:inputMask id="cnpj" rendered="#{clienteBean.CNPJ}"
-							mask="99.999.999/9999-99" />
-
-					<p:outputLabel value="Email" for="email" />
-					<p:inputText id="email" />
-
-				</p:panelGrid>
-			</h:form>
-		</div>
+			</p:toolbar>
 
 
 
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
 
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" />
+
+				<p:outputLabel value="Tipo de documento" for="tipo" />
+
+				<p:selectOneRadio id="tipo" required="true"
+					value="#{clienteBean.tipoCliente}">
+
+					<f:selectItem itemLabel="CPF" itemValue="cpf" />
+					<f:selectItem itemLabel="CNPJ" itemValue="cnpj" />
+
+					<p:ajax execute="@this" update="@form" />
+
+				</p:selectOneRadio>
+
+
+				<p:outputLabel value="CPF" for="cpf" rendered="#{clienteBean.CPF}" />
+				<p:inputMask id="cpf" rendered="#{clienteBean.CPF}" size=""
+					mask="999.999.999-99" />
+
+				<p:outputLabel value="CNPJ" for="cnpj"
+					rendered="#{clienteBean.CNPJ}" />
+				<p:inputMask id="cnpj" rendered="#{clienteBean.CNPJ}"
+					mask="99.999.999/9999-99" />
+
+				<p:outputLabel value="Email" for="email" />
+				<p:inputText id="email" />
+
+			</p:panelGrid>
+			
+			<p:button value="Adicinar Endereço" style="margin-top:20px"/>
+
+			<p:dataTable id="tablelaClientes" style="margin-top: 10px" rows="20"
+				paginator="true" paginatorAlwaysVisible="false"
+				emptyMessage="Nenhum Cliente Encontrado">
+
+				<p:column headerText="Logradouro" style="text-align: left">
+
+				</p:column>
+
+				<p:column headerText="Número" style="text-align: left; width: 70px">
+
+				</p:column>
+
+				<p:column headerText="Completento"
+					style="text-align: left; width: 150px">
+				</p:column>
+
+				<p:column headerText="CEP"
+					style="text-align: left; width: 150px">
+				</p:column>
+
+				<p:column headerText="Cidade"
+					style="text-align: left; width: 150px">
+				</p:column>
+
+				<p:column headerText="UF"
+					style="text-align: left; width: 100px">
+				</p:column>
+
+
+				<p:column style="text-align: left; width: 50px">
+					<p:button icon="ui-icon-pencil" />
+					<p:button icon="ui-icon-trash" />
+				</p:column>
+
+
+			</p:dataTable>
+
+
+
+		</h:form>
 
 	</ui:define>
-
-
 
 </ui:composition>
