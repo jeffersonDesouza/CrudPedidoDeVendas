@@ -11,15 +11,16 @@
 	<title><ui:insert name="titulo">Sistem de Pedido de Vendas</ui:insert></title>
 
 	<h:outputStylesheet library="css" name="sistema.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
 
 </h:head>
 <h:body>
-	<p:ajaxStatus styleClass="ajax-status">
+	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
 		<f:facet name="start">
-			<h:graphicImage library="images" name="carregando.gif"/>
+			<h:graphicImage library="images" name="carregando.gif" />
 		</f:facet>
 		<f:facet name="complete">
-			<h:outputLabel value=""/>
+			<h:outputText value="" />
 		</f:facet>
 	</p:ajaxStatus>
 
@@ -36,6 +37,25 @@
 	<p:separator style="margin-top:20px" />
 
 	<footer> Tutorial do ciurso de Sistemas Comerciais </footer>
+
+	<script>
+		function configurarMoeda(){
+			$(".moeda").maskMoney({
+				decimal:",",
+				thousands: ".",
+				allowZero: true
+			});
+			
+		}
+		
+			
+			$(document).ready(function(){
+				configurarMoeda();
+			});
+			
+		
+	</script>
+
 </h:body>
 
 

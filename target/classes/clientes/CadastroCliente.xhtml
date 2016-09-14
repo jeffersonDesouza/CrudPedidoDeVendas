@@ -40,21 +40,23 @@
 						<f:selectItem itemLabel="CPF" itemValue="cpf" />
 						<f:selectItem itemLabel="CNPJ" itemValue="cnpj" />
 
-						<p:ajax execute="@this" update="@form" />
+						<p:ajax execute="@this" update="@form"
+							listener="#{clienteBean.atualizar}" />
 
 					</p:selectOneRadio>
 
+					<p:outputLabel value="CNPJ" for="cnpj" rendered="#{clienteBean.CNPJ}" />
+					<p:inputMask id="cnpj" rendered="#{clienteBean.CNPJ}"
+							mask="999.999.999-99" />
 
 					<p:outputLabel value="CPF" for="cpf" rendered="#{clienteBean.CPF}" />
 					<p:inputMask id="cpf" rendered="#{clienteBean.CPF}" size=""
-							mask="999.999.999-99" />
-							
-					<p:outputLabel value="CNPJ" for="cnpj" rendered="#{clienteBean.CNPJ}" />
-					<p:inputMask id="cnpj" rendered="#{clienteBean.CNPJ}"
-							mask="99.999.999/9999-99" />
+							mask=""/>
 
 					<p:outputLabel value="Email" for="email" />
 					<p:inputText id="email" />
+					<h:outputText value="Selecionado" />
+					<h:outputText id="resultado" value="de #{clienteBean.tipoCliente}" />
 
 				</p:panelGrid>
 			</h:form>

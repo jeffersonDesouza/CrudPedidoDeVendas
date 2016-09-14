@@ -26,6 +26,8 @@
 	</build>
 
 	<dependencies>
+	
+		<!-- JSF -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
@@ -33,6 +35,8 @@
 			<scope>compile</scope>
 		</dependency>
 
+
+		<!-- PrimeFaces 6 -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
