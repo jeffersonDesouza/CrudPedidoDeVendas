@@ -9,16 +9,35 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="titulo">Sistem de Pedido de Vendas</ui:insert></title>
-	
+
 	<h:outputStylesheet library="css" name="sistema.css"></h:outputStylesheet>
-	
+
 </h:head>
 <h:body>
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="carregando.gif"/>
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputLabel value=""/>
+		</f:facet>
+	</p:ajaxStatus>
+
 	<header>
-		<div>
-			<h3>Sistema Vendas</h3>
-		</div>
+	<div>
+		<h2>Sistema Vendas</h2>
+	</div>
 	</header>
 
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<p:separator style="margin-top:20px" />
+
+	<footer> Tutorial do ciurso de Sistemas Comerciais </footer>
 </h:body>
+
+
 </html>
+
