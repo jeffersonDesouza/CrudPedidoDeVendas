@@ -58,8 +58,10 @@
 				<p:inputText id="email" />
 
 			</p:panelGrid>
+
+			<p:commandButton value="Adicinar Endereço" style="margin-top:20px" oncomplete="PF('cadastrarEndereco').show()"/>
+			<ui:include src="/WEB-INF/template/clientes/AddEnderecoCliente.xhtml"/>
 			
-			<p:button value="Adicinar Endereço" style="margin-top:20px"/>
 
 			<p:dataTable id="tablelaClientes" style="margin-top: 10px" rows="20"
 				paginator="true" paginatorAlwaysVisible="false"
@@ -77,16 +79,13 @@
 					style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="CEP"
-					style="text-align: left; width: 150px">
+				<p:column headerText="CEP" style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="Cidade"
-					style="text-align: left; width: 150px">
+				<p:column headerText="Cidade" style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="UF"
-					style="text-align: left; width: 100px">
+				<p:column headerText="UF" style="text-align: left; width: 100px">
 				</p:column>
 
 
@@ -98,8 +97,7 @@
 
 			</p:dataTable>
 
-
-
+		
 		</h:form>
 
 	</ui:define>

@@ -58,8 +58,8 @@
 				<p:inputText id="email" />
 
 			</p:panelGrid>
-			
-			<p:button value="Adicinar Endereço" style="margin-top:20px"/>
+
+			<p:commandButton value="Adicinar Endereço" style="margin-top:20px" oncomplete="PF('cadastrarEndereco').show()"/>
 
 			<p:dataTable id="tablelaClientes" style="margin-top: 10px" rows="20"
 				paginator="true" paginatorAlwaysVisible="false"
@@ -77,16 +77,13 @@
 					style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="CEP"
-					style="text-align: left; width: 150px">
+				<p:column headerText="CEP" style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="Cidade"
-					style="text-align: left; width: 150px">
+				<p:column headerText="Cidade" style="text-align: left; width: 150px">
 				</p:column>
 
-				<p:column headerText="UF"
-					style="text-align: left; width: 100px">
+				<p:column headerText="UF" style="text-align: left; width: 100px">
 				</p:column>
 
 
@@ -98,8 +95,32 @@
 
 			</p:dataTable>
 
+			<p:confirmDialog header="Inclusão de Endereco"
+				widgetVar="cadastrarEndereco">
 
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Logradouro" for="logradouro-cliente" />
+					<p:inputText id="logradouro-cliente" />
 
+					<p:outputLabel value="Número" for="numero-cliente" />
+					<p:inputText id="" />
+
+					<p:outputLabel value="Complemento" for="complemento-cliente" />
+					<p:inputText id="numero-cliente" />
+
+					<p:outputLabel value="CEP" for="cep-cliente" />
+					<p:inputText id="cep-cliente" />
+
+					<p:outputLabel value="Cidade" for="cidade-cliente" />
+					<p:inputText id="cidade-cliente" />
+
+					<p:outputLabel value="UF" for="uf-cliente" />
+					<p:inputText id="uf-cliente" />
+
+					<p:commandButton value="Incluir Endereço" />
+				</h:panelGrid>
+				
+			</p:confirmDialog>
 		</h:form>
 
 	</ui:define>

@@ -39,10 +39,11 @@
 
 
 			<p:dataTable id="produtosTable"
-				
+				value="#{produtoBean.produtosFiltrados}" var="produto"
 				style="margin-top: 20px" emptyMessage="Nenhum produto encontrado."
 				rows="20" paginator="true" paginatorAlwaysVisible="false"
 				paginatorPosition="bottom">
+
 				<p:column headerText="SKU" style="text-align: center; width: 100px">
 					<h:outputText value="123" />
 				</p:column>
@@ -60,12 +61,20 @@
 					style="text-align: center; width: 100px">
 					<h:outputText value="98" />
 				</p:column>
-				<p:column style="width: 100px; text-align: center">
-					<p:button icon="ui-icon-pencil" title="Editar" />
-					<p:commandButton icon="ui-icon-trash" title="Excluir" />
-				</p:column>
+    		<p:column style="width: 100px; text-align: center">
+	    			<p:button icon="ui-icon-pencil" title="Editar" />
+	    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="PF('confirmacaoExclusao').show();" />
+	    		</p:column>
 			</p:dataTable>
 
+			<p:confirmDialog header="Exclusão de produto"
+				message="Tem certeza que deseja excluir o produto?"
+				widgetVar="confirmacaoExclusao">
+				<p:button value="Não"
+					onclick="PF('confirmacaoExclusao').hide(); return false;" />
+				<p:commandButton value="Sim"
+					oncomplete="PF('confirmacaoExclusao').hide();" />
+			</p:confirmDialog>
 
 		</form>
 	</ui:define>
