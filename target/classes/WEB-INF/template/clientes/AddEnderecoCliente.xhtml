@@ -5,34 +5,31 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-	<p:confirmDialog header="Inclusão de Endereco" widgetVar="cadastrarEndereco">
-		
-		<h:panelGrid columns="2">
-			<p:outputLabel value="Logradouro" for="logradouro-cliente"/>
-			<p:inputText id="logradouro-cliente"/>
-
-			<p:outputLabel value="Número" for="numero-cliente"/>
-			<p:inputText id=""/>
-			
-			<p:outputLabel value="Complemento" for="complemento-cliente"/>
-			<p:inputText id="numero-cliente"/>
-
-			<p:outputLabel value="CEP" for="cep-cliente"/>
-			<p:inputText id="cep-cliente"/>
-
-			<p:outputLabel value="Cidade" for="cidade-cliente"/>
-			<p:inputText id="cidade-cliente"/>
-
-			<p:outputLabel value="UF" for="uf-cliente"/>
-			<p:inputText id="uf-cliente"/>
-			
-			<p:commandButton value="Incluir Endereço"/>
-			
-			
-		</h:panelGrid>
 	
-		
-	
-	</p:confirmDialog>
+			<p:confirmDialog header="Inclusão de Endereco"
+				widgetVar="cadastrarEndereco">
 
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Logradouro" for="logradouro-cliente" />
+					<p:inputText id="logradouro-cliente" />
+
+					<p:outputLabel value="Número" for="numero-cliente" />
+					<p:inputText id="numero-cliente" />
+
+					<p:outputLabel value="Complemento" for="complemento-cliente" />
+					<p:inputText id="complemento-cliente" />
+
+					<p:outputLabel value="CEP" for="cep-cliente" />
+					<p:inputText id="cep-cliente" />
+
+					<p:outputLabel value="Cidade" for="cidade-cliente" />
+					<p:inputText id="cidade-cliente" />
+
+					<p:outputLabel value="UF" for="uf-cliente" />
+					<p:inputText id="uf-cliente" />
+
+					<p:commandButton value="Incluir Endereço" oncomplete="PF('cadastrarEndereco').hide()" />
+				</h:panelGrid>
+				
+			</p:confirmDialog>
 </ui:composition>
