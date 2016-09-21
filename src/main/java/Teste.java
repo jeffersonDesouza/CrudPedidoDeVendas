@@ -5,12 +5,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import com.estudo.controller.model.Categoria;
-import com.estudo.controller.model.Cliente;
-import com.estudo.controller.model.Endereco;
-import com.estudo.controller.model.GrupoUsuario;
-import com.estudo.controller.model.Produto;
-import com.estudo.controller.model.Usuario;
+import com.estudo.model.Categoria;
+import com.estudo.model.Cliente;
+import com.estudo.model.Endereco;
+import com.estudo.model.GrupoUsuario;
+import com.estudo.model.Produto;
+import com.estudo.model.Usuario;
 import com.estudo.util.design_patterns.ClienteBuilder;
 import com.estudo.util.design_patterns.EnderecoBuilder;
 

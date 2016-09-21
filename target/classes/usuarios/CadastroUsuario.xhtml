@@ -1,0 +1,74 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Cadastro de Usuarios</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1>Novo Usuario</h1>
+		<p:toolbar>
+			<p:toolbarGroup>
+				<p:button value="Novo" outcome="/usuarios/CadastroUsuario" />
+				<p:commandButton value="Salvar" id="botaoSalvar" />
+
+			</p:toolbarGroup>
+
+			<p:toolbarGroup align="right">
+				<p:button value="Salvar" />
+			</p:toolbarGroup>
+
+		</p:toolbar>
+
+
+		<h:form>
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="100" maxlength="250" />
+
+				<p:outputLabel value="Email" for="email" />
+				<p:inputText id="email" size="100" maxlength="250" />
+
+				<p:outputLabel value="Senha" for="senha" />
+				<p:password id="senha" size="30" maxlength="25" />
+
+			</p:panelGrid>
+		</h:form>
+
+		<h:panelGrid columns="2" style="margin-top: 10px" >
+			
+			<p:selectOneMenu required="true" >
+				<f:selectItem itemLabel="Selecione"/>
+
+				<f:selectItems value="#{usuarioBean.tiposDePermicaoUsuario}"/>
+			
+			</p:selectOneMenu>
+				
+			<p:button value="Adicionar Permissão"/>
+			
+		</h:panelGrid>
+
+		<p:dataTable id="tabelaPermissoesUsuario" value="#{usuarioBean.permisoes}" var="permissao"
+			style="margin-top: 10px" emptyMessage="Nenhum Cliente Encontrado">
+				
+			<p:column headerText="Grupo" style="text-align: left">
+				<h:outputText value="#{permissao}" />
+			</p:column>
+
+			<p:column style="text-align: center; width: 70px">
+				<p:button icon="ui-icon-pencil" />
+				<p:button icon="ui-icon-trash" />
+			</p:column>
+
+
+
+		</p:dataTable>
+
+
+	</ui:define>
+</ui:composition>

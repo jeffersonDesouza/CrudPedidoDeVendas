@@ -1,7 +1,7 @@
 package com.estudo.util.design_patterns;
 
-import com.estudo.controller.model.Cliente;
-import com.estudo.controller.model.Endereco;
+import com.estudo.model.Cliente;
+import com.estudo.model.Endereco;
 
 public class EnderecoBuilder {
 

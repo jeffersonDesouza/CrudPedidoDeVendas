@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.estudo.controller.model.GrupoUsuario;
-import com.estudo.controller.model.Usuario;
+import com.estudo.model.GrupoUsuario;
+import com.estudo.model.Usuario;
 
 public class TestesPersistencia {
 
