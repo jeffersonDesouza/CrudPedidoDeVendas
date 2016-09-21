@@ -13,10 +13,12 @@
 		<h:form>
 
 			<h1>Novo Cliente</h1>
+			<p:messages autoUpdate="true"/>
+			
 			<p:toolbar>
 				<p:toolbarGroup>
 					<p:button value="Novo" outcome="/clientes/CadastroCliente" />
-					<p:commandButton value="Salvar" id="botaoSalvar"/>
+					<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroProdutoBean.salvar}" />
 
 				</p:toolbarGroup>
 

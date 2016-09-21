@@ -16,8 +16,10 @@ public class CadastroProdutoBean {
 		return valor;
 	}
 	
+	
+	
 	public void salvar(){
-		
+		throw new NegocioException("O CLIENTE não pode ser salvo pois ainda não foi implementado");
 	}
 
 }
