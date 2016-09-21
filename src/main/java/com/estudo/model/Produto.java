@@ -53,7 +53,7 @@ public class Produto implements Serializable {
 		this.sku = sku == null ? null : sku.toUpperCase();
 	}
 
-	@Column(nullable=false, precision=10, scale=2)
+	@Column(name="valor_unitario", nullable=false, precision=10, scale=2)
 	public BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
@@ -61,7 +61,7 @@ public class Produto implements Serializable {
 		this.valorUnitario = valorUnitario;
 	}
 
-	@Column(name="quandidade_em_estoque",nullable=false, length=5)
+	@Column(name="quantidade_em_estoque",nullable=false, length=5)
 	public Integer getQuantidadeEstoque() {
 		return quantidadeEstoque;
 	}

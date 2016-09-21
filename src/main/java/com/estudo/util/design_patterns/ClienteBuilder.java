@@ -36,12 +36,12 @@ public class ClienteBuilder {
 	}
 
 	public ClienteBuilder comTipoPessoaFisia() {
-		this.instanciaCliente.setTipoPessoa(TipoPessoa.FISICA);
+		this.instanciaCliente.setTipo(TipoPessoa.FISICA);
 		return this;
 	}
 
 	public ClienteBuilder comTipoPessoaJuridica() {
-		this.instanciaCliente.setTipoPessoa(TipoPessoa.JURIDICA);
+		this.instanciaCliente.setTipo(TipoPessoa.JURIDICA);
 		return this;
 	}
 

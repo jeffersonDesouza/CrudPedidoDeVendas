@@ -6,6 +6,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+@Entity
+@Table(name="pedido")
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,15 +34,18 @@ public class Pedido implements Serializable {
 	private Date dataEntrega;
 
 	private StatusPedido statusPedido;
-	private FormaDePagamento formaDePagamento;
+	private FormaPagamento formaDePagamento;
 
 	private BigDecimal valorFrete;
 	private BigDecimal valorDesconto;
 	private BigDecimal valorTotal;
 	private Usuario vendedor;
 	private Cliente cliente;
+	private EnderecoEntrega enderecoEntrega;
 	private List<ItemPedido> itemPedidos = new ArrayList<ItemPedido>();
-
+	
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +54,8 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="data_criacao", nullable=false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -41,6 +64,7 @@ public class Pedido implements Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
+	@Column(columnDefinition = "text")
 	public String getObservacao() {
 		return observacao;
 	}
@@ -49,14 +73,25 @@ public class Pedido implements Serializable {
 		this.observacao = observacao;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="data_entrega", nullable=false)
 	public Date getDataEntrega() {
 		return dataEntrega;
 	}
-
 	public void setDataEntrega(Date dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 
+	@Column(name ="valor_frete", nullable=false, precision=10, scale=2)
+	public BigDecimal getValorFrete() {
+		return valorFrete;
+	}
+	public void setValorFrete(BigDecimal valorFrete) {
+		this.valorFrete = valorFrete;
+	}
+
+	@Enumerated(EnumType.STRING)
+	@Column(name="status_pedido", nullable=false, length=20)
 	public StatusPedido getStatusPedido() {
 		return statusPedido;
 	}
@@ -65,22 +100,18 @@ public class Pedido implements Serializable {
 		this.statusPedido = statusPedido;
 	}
 
-	public FormaDePagamento getFormaDePagamento() {
+	@Enumerated(EnumType.STRING)
+	@Column(name="forma_pagamento", nullable=false, length=20)
+	public FormaPagamento getFormaDePagamento() {
 		return formaDePagamento;
 	}
 
-	public void setFormaDePagamento(FormaDePagamento formaDePagamento) {
+	public void setFormaDePagamento(FormaPagamento formaDePagamento) {
 		this.formaDePagamento = formaDePagamento;
 	}
 
-	public BigDecimal getValorFrete() {
-		return valorFrete;
-	}
 
-	public void setValorFrete(BigDecimal valorFrete) {
-		this.valorFrete = valorFrete;
-	}
-
+	@Column(name ="valor_desconto", nullable=false, precision=10, scale=2)
 	public BigDecimal getValorDesconto() {
 		return valorDesconto;
 	}
@@ -89,6 +120,7 @@ public class Pedido implements Serializable {
 		this.valorDesconto = valorDesconto;
 	}
 
+	@Column(name ="valor_total", nullable=false, precision=10, scale=2)
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
@@ -97,6 +129,8 @@ public class Pedido implements Serializable {
 		this.valorTotal = valorTotal;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="vendedor_id", nullable=false)
 	public Usuario getVendedor() {
 		return vendedor;
 	}
@@ -105,6 +139,8 @@ public class Pedido implements Serializable {
 		this.vendedor = vendedor;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="cliente_id", nullable=false)
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -112,7 +148,17 @@ public class Pedido implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	@Embedded	
+	public EnderecoEntrega getEnderecoEntrega() {
+		return enderecoEntrega;
+	}
 
+	public void setEnderecoEntrega(EnderecoEntrega enderecoEntrega) {
+		this.enderecoEntrega = enderecoEntrega;
+	}
+
+	@OneToMany(mappedBy="pedido", cascade = CascadeType.ALL, orphanRemoval=true)
 	public List<ItemPedido> getItemPedidos() {
 		return itemPedidos;
 	}
