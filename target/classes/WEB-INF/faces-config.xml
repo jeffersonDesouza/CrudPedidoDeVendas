@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     
+    
+    <application>
+    	<message-bundle>com.estudo.pedidovendas.Messages</message-bundle>
+    
+    	<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+    
+    </application>
+    
     <factory>
     	<exception-handler-factory>
     			com.estudo.util.jsf.JsfExceptionHandlerFactory

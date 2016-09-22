@@ -13,6 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
@@ -36,6 +41,7 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank @Size(max=100)
 	@Column(nullable = false, length = 100)
 	public String getNome() {
 		return nome;
@@ -45,6 +51,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
+	@NotBlank @Size(max=250)
 	@Column(nullable = false, length = 255)
 	public String getEmail() {
 		return email;
@@ -54,6 +61,7 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
+	@NotBlank @Size(max=14)
 	@Column(name = "doc_receita_federal", nullable = false, length = 14)
 	public String getDocumentoReceitaFederal() {
 		return documentoReceitaFederal;
@@ -63,6 +71,7 @@ public class Cliente implements Serializable {
 		this.documentoReceitaFederal = documentoReceitaFederal;
 	}
 	
+	@NotNull @Size(max=250)
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 10)
 	public TipoPessoa getTipo() {
@@ -73,6 +82,7 @@ public class Cliente implements Serializable {
 		this.tipo = tipo;
 	}
 
+	@NotNull @Size(max=250)
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	public List<Endereco> getEnderecos() {
 		return enderecos;

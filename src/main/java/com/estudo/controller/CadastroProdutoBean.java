@@ -1,26 +1,28 @@
 package com.estudo.controller;
 
-import javax.enterprise.context.RequestScoped;
+
+import java.io.Serializable;
+import com.estudo.model.Produto;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
-import com.estudo.service.NegocioException;
-
 @Named
-@RequestScoped
-public class CadastroProdutoBean {
+@ViewScoped
+public class CadastroProdutoBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Produto produto;
 	
-	
-	double valor;
-	
-	public double getValor(){
-		return valor;
+	public CadastroProdutoBean() {
+		produto = new Produto();
 	}
 	
-	
-	
-	public void salvar(){
-		throw new NegocioException("O CLIENTE não pode ser salvo pois ainda não foi implementado");
+	public void salvar() {
+	}
+
+	public Produto getProduto() {
+		return produto;
 	}
 
 }
-

@@ -28,6 +28,13 @@
 	<dependencies>
 
 
+		<!-- Implementacao do Bean Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- Nucleo Hibernate -->
 		<dependency>

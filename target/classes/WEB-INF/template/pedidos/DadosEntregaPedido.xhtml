@@ -4,41 +4,39 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+	<p:panelGrid columns="4" style="width: 100%"
+		columnClasses="rotulo, campo, rotulo, campo">
+		<p:outputLabel value="Data da entrega" for="data_Entrega" />
+		<p:calendar id="data_Entrega" size="10" pattern="dd/MM/yyyy"
+			value="#{cadastroPedidoBean.pedido.dataEntrega}" />
 
-	<p:dataTable value="#{cadastroPedidoBean.itens}" var="item"
-		id="tabelaItens">
-		<p:column headerText="SKU" style="text-align: center; width: 100px">
-			<p:inputText size="8" />
-		</p:column>
-		<p:column headerText="Produto">
-			<p:autoComplete styleClass="produto-tabela" />
-		</p:column>
-		<p:column headerText="Valor unitário"
-			style="text-align: right; width: 120px">
-			<h:outputText value="R$ 0,00" />
-		</p:column>
-		<p:column headerText="Quantidade"
-			style="text-align: center; width: 100px">
-			<p:inputText size="8" value="1" />
-		</p:column>
-		<p:column headerText="Estoque"
-			style="text-align: center; width: 100px">
-			<h:outputText value="0" />
-		</p:column>
-		<p:column headerText="Valor total"
-			style="text-align: right; width: 100px">
-			<h:outputText value="R$ 0,00" />
-		</p:column>
+		<p:spacer />
+		<p:spacer />
 
-		<p:columnGroup type="footer">
-			<p:row>
-				<p:column colspan="5" footerText="Subtotal"
-					style="text-align: right" />
-				<p:column footerText="R$ 0,00" style="text-align: right" />
-			</p:row>
-		</p:columnGroup>
-	</p:dataTable>
+		<p:outputLabel value="Logradouro" for="entrega_Logradouro" />
+		<p:inputText id="entrega_Logradouro" size="50"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.logradouro}" />
 
+		<p:outputLabel value="Número" for="entrega_Numero" />
+		<p:inputText id="entrega_Numero" size="5"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.numero}" />
+
+		<p:outputLabel value="Complemento" for="entrega_Complemento" />
+		<p:inputText id="entrega_Complemento" size="50"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.complemento}" />
+
+		<p:outputLabel value="Cidade" for="entrega_Cidade" />
+		<p:inputText id="entrega_Cidade" size="20"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.cidade}" />
+
+		<p:outputLabel value="Estado" for="entrega_Estado" />
+		<p:inputText id="entrega_Estado" size="20"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.uf}" />
+
+		<p:outputLabel value="CEP" for="entrega_Cep" />
+		<p:inputText id="entrega_Cep" size="10"
+			value="#{cadastroPedidoBean.pedido.enderecoEntrega.cep}" />
+	</p:panelGrid>
 
 
 </ui:composition>

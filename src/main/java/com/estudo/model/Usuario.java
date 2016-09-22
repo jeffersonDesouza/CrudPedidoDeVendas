@@ -14,6 +14,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="usuario")
@@ -38,6 +42,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank @Size(max=200)
 	@Column(nullable=false)
 	public String getNome() {
 		return nome;
@@ -46,6 +51,7 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
+	@NotBlank @Size(max=100)
 	@Column(nullable=false, length=100, unique=true)
 	public String getEmail() {
 		return email;
@@ -54,6 +60,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
+	@NotBlank @Size(max=20)
 	@Column(nullable=false)
 	public String getSenha() {
 		return senha;
@@ -62,6 +69,7 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
+	@NotNull @Size(max=100)
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"),
 	inverseJoinColumns = @JoinColumn(name = "grupo_id"))

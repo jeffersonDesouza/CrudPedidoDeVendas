@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Endereco implements Serializable {
@@ -32,6 +36,7 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank @Size(max=100)
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -40,6 +45,7 @@ public class Endereco implements Serializable {
 		this.logradouro = logradouro;
 	}
 
+	@NotBlank @Size(max=5)
 	public String getNumero() {
 		return numero;
 	}
@@ -48,6 +54,7 @@ public class Endereco implements Serializable {
 		this.numero = numero;
 	}
 
+	@NotBlank @Size(max=100)
 	public String getComplemento() {
 		return complemento;
 	}
@@ -56,14 +63,17 @@ public class Endereco implements Serializable {
 		this.complemento = complemento;
 	}
 
+	@NotBlank @Size(max=100)
 	public String getCidade() {
 		return cidade;
 	}
 
+	@NotBlank
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
 
+	@NotBlank @Size(max=20)
 	public String getUf() {
 		return uf;
 	}
@@ -72,6 +82,7 @@ public class Endereco implements Serializable {
 		this.uf = uf;
 	}
 
+	@NotNull @Size(max=9)
 	public String getCep() {
 		return cep;
 	}
