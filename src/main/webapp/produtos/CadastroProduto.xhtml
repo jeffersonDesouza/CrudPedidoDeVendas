@@ -9,6 +9,11 @@
 
 	<ui:define name="corpo">
 
+		<f:metadata>
+			<f:event listener="#{cadastroProdutoBean.inicializar}"
+				type="preRenderView"></f:event>
+		</f:metadata>
+
 		<h:form>
 
 
@@ -44,6 +49,10 @@
 					<p:outputLabel value="Categoria" for="categoria" />
 					<p:selectOneMenu id="categoria">
 						<f:selectItem itemLabel="Selecione a categoria" />
+						<f:selectItems value="#{cadastroProdutoBean.categoriaRaizes}" 
+							var="categoria" itemValue="#{categoria}"
+							itemLabel="#{categoria.descricao}" />
+
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Sub-Categoria" for="subcategoria" />
@@ -55,9 +64,10 @@
 
 					<p:outputLabel value="Valor Unitário" for="valor-unitario" />
 					<p:inputText id="valor-unitario" size="10" maxlength="10"
-						styleClass="moeda" rendered="true" value="#{cadastroProdutoBean.produto.valorUnitario}">
-							<f:convertNumber maxFractionDigits="2" maxIntegerDigits="2"/>
-						</p:inputText>
+						styleClass="moeda" rendered="true"
+						value="#{cadastroProdutoBean.produto.valorUnitario}">
+						<f:convertNumber maxFractionDigits="2" maxIntegerDigits="2" />
+					</p:inputText>
 
 					<p:outputLabel value="Estoque" for="estoque" />
 					<p:inputText id="estoque" size="4" maxlength="5"
